@@ -1,49 +1,44 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="home.aspx.cs" Inherits="Crochet_Web.home" %>
+﻿    <%@ Page Language="C#" AutoEventWireup="true" CodeBehind="home.aspx.cs" Inherits="Crochet_Web.home" %>
 
-<!DOCTYPE html>
+    <!DOCTYPE html>
 
-<html lang="en">
-<head runat="server">
-    <meta name="viewport" content="width, initial-scale=1, shrink-to-fit=no"/>
-    <link rel="icon" href="images/crochet.png"/>
-    <title>StitchCraft</title>
-    <link href="Content/bootstrap.min.css" rel="stylesheet" />
-    <script src="Scripts/bootstrap.bundle.min.js"></script>     
-    <script src="Scripts/bootstrap.min.js"></script>
-    <link href="styles.css" rel="stylesheet" />
-</head>
-<body>
-    <form id="form1" runat="server">
-        <nav class="navbar navbar-expand-lg bg-body-tertiary">
-  <div class="container-fluid">
-    <img src="images/crochet.png" width="30" height="30" alt="">
-    <a class="navbar-brand" href="#">Stitch Craft  
-    </a>
+    <html lang="en">
+    <head runat="server">
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <link rel="icon" href="images/crochet.png"/>
+        <title>StitchCraft</title>
+        <link href="styles.css" rel="stylesheet" />
+        <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet"/>
+        <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css"/>
 
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Products</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">About Us</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link disabled" aria-disabled="true"></a>
-        </li>
-      </ul>
-    </div>
-  </div>
-</nav>
-        <div class="welcome">
-            <h1 id="welcome-h1">WELCOME TO STITCH CRAFT</h1>
-        </div>
-    </form>
-</body>
-</html>
+    </head>
+    <body>  
+        <form id="form1" runat="server">
+           <header class="header">
+               <a href="#" class="logo"><img src="images/crochet_logo.png" alt="Logo" style="height: 28px; width: auto; margin-right:3px;"/><span>Stitch Craft</span>
+               </a>
+               <ul class="navbar">
+                   <li><a href="home.aspx" class="active">Home</a></li>
+                   <li><a href="products.aspx">Products</a></li>
+                   <li><a href="about.aspx">About Us</a></li>
+                   <li><a href="contact.aspx">Contact</a></li>
+               </ul>
+               <div class="main">
+                   <a href="Login.aspx" class="user"><i class="ri-user-fill"></i>Sign In</a>
+                   <a href="Registration.aspx">Register</a>
+                   <div class="bx bx-menu" id="menu-icon">  </div>
+               </div>
+           </header>
+            
+            <div class="welcome">
+                <h1 id="welcome-h1">WELCOME TO STITCH CRAFT</h1>
+                <p>Discover a world of handcrafted coziness and endless creativity at Stitch Craft. 
+                    Explore our curated selection of patterns, yarns, and supplies to spark your next project.</p>
+                <a class="my-button" href="#" role="button">Shop Now</a>
+                <a class="my-button" href="#" role="button">Learn More</a>            
+
+            </div>
+        </form>
+    </body>
+    </html>
