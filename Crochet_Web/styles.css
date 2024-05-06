@@ -14,6 +14,7 @@ body{
     background: url('images/crochet_bg2.jpg');
     background-size: cover;
     background-position: center;
+     
 }
 
 .header{
@@ -142,9 +143,11 @@ body{
         right: 2%;
     }
 }
-
+.welcome{
+    text-align:center;
+}
 .welcome h1 {
-    text-align: justify;
+    
     color: white;
     font-size: 55px;
     font-family: 'Sedan', sans-serif;
@@ -154,7 +157,7 @@ body{
 }
 
 
-p {
+#home-wel-p {
     text-align: justify;
     color: white;
     font-family: 'Sedan';
@@ -162,11 +165,12 @@ p {
     padding-left: 20rem;
     padding-right: 20rem;
     padding-top: 1rem;
-    padding-bottom: 1rem;
+    padding-bottom: 5rem;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .my-button {
+   
     padding: 10px 20px;
     background-color: #DFB633;
     color: white;
@@ -175,6 +179,8 @@ p {
     cursor: pointer;
     transition: background-color 0.3s ease;
     margin-right:10px;
+    text-align:center;
+    
 }
 
     .my-button:hover {
