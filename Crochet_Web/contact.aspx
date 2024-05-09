@@ -71,6 +71,22 @@ body{
     font-size: 1.7rem;
     font-weight:600;
 }
+.main{
+    display: flex;
+    align-items:center;
+
+}
+.main a{
+    margin-right: 25px;
+    margin-left: 10px;
+    color: white;
+    font-size: 1.1rem;
+    font-weight:500;
+    transition: all .50s ease;
+}
+.main a:hover {
+    color: orange;
+}
 
 .container {
     background-color: orange;
@@ -162,6 +178,9 @@ body{
                <li><a href="about.aspx">About Us</a></li>
                <li><a href="contact.aspx" class="active">Contact</a></li>
            </ul>
+            <div class="main">
+                <a href="Default.aspx">Log out</a>
+            </div>
        </header>
         <div class="container">
             <div class="contact-info">

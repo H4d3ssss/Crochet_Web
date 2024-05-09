@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -20,27 +21,31 @@ namespace Crochet_Web
 
         protected void Login_Click(object sender, EventArgs e)
         {
-            if (Page.IsValid)
+            string connectionString = "Data Source=ZEUS\\SQLEXPRESS;Initial Catalog=ProgrammingDB;User ID=admin;Password=admin123";
+            using (SqlConnection con = new SqlConnection(connectionString))
             {
-                // Here you can add your login authentication logic
-                string username = txtUsername.Text;
-                string password = txtPassword.Text;
-
-                // Example: Check if the username and password match a database record
-                if (username == "admin" && password == "12345")
+                string query = "SELECT COUNT(*) FROM customer_info WHERE username = @Username AND password = @Password";
+                SqlCommand cmd = new SqlCommand(query, con);
+                cmd.Parameters.AddWithValue("@Username", txtUsername.Text);
+                cmd.Parameters.AddWithValue("@Password", txtPassword.Text);
+                con.Open();
+                int count = (int)cmd.ExecuteScalar();
+                if (count > 0)
                 {
-                    // Successful login
-                    Response.Redirect("welcome.aspx"); // Redirect to the welcome page
+                    
+                    Session["username"] = txtUsername.Text;
+                    string script = "alert('Login successful.');";
+                    ClientScript.RegisterStartupScript(this.GetType(), "alert", script, true);
+                    Response.Redirect("Home.aspx"); 
                 }
                 else
                 {
-                    // Failed login
-                    // You can display an error message or perform any other action here
-
+                    string script = "alert('Invalid username or password.');";
+                    ClientScript.RegisterStartupScript(this.GetType(), "alert", script, true);
                 }
             }
-
         }
+
     }
 
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -13,22 +14,19 @@ namespace Crochet_Web
         {
 
         }
-        protected void btnSubmit_Click(object sender, EventArgs e)
+
+        protected void RegisterUser(object sender, EventArgs e)
         {
-            if (Page.IsValid)
-            {
-                // Registration logic goes here
-                string username = txtUsername.Text;
-                string password = txtPassword.Text;
-                string email = txtEmail.Text;
-                string phone = txtPhone.Text;
-
-                // Example: Save the user data to a database
-                // You should replace this with your actual database logic
-
-                // Redirect to a confirmation page after successful registration
-                Response.Redirect("registration_confirmation.aspx");
-            }
+            SqlConnection con = new SqlConnection("Data Source=ZEUS\\SQLEXPRESS;Initial Catalog=ProgrammingDB;User ID=admin;Password=admin123");
+            con.Open();
+            SqlCommand comm = new SqlCommand("Insert into customer_info values " + "('" + txtUsername.Text + "','" + txtPassword.Text + "','" + txtEmail.Text + "','" + txtPhoneNumber.Text + "')", con);
+        
+            comm.ExecuteNonQuery();
+            con.Close();
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "script", "alert('Successfully Inserted');", true);
+        
+        
+        
         }
     }
 }

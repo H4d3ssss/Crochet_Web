@@ -102,6 +102,22 @@
         .maker p{
             color: orange;  
         }
+        .main{
+            display: flex;
+            align-items:center;
+
+        }
+        .main a{
+            margin-right: 25px;
+            margin-left: 10px;
+            color: white;
+            font-size: 1.1rem;
+            font-weight:500;
+            transition: all .50s ease;
+        }
+        .main a:hover {
+            color: orange;
+        }
     </style>
 </head>
 <body>
@@ -115,6 +131,9 @@
            <li><a href="about.aspx" class="active">About Us</a></li>
            <li><a href="contact.aspx">Contact</a></li>
        </ul>
+            <div class="main">
+                <a href="Default.aspx">Log out</a>
+            </div>
 </header>
 
         <div class="about-container">

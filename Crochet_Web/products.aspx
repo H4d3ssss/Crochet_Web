@@ -67,6 +67,22 @@ body{
     font-size: 1.7rem;
     font-weight:600;
 }
+.main{
+    display: flex;
+    align-items:center;
+
+}
+.main a{
+    margin-right: 25px;
+    margin-left: 10px;
+    color: white;
+    font-size: 1.1rem;
+    font-weight:500;
+    transition: all .50s ease;
+}
+.main a:hover {
+    color: orange;
+}
 .container {
     max-width: 1200px;
     margin: 0 auto;
@@ -118,8 +134,52 @@ body{
     height:auto;
     border-radius: 10%;
 }
-        
+.container {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px;
+}
 
+.products-container {
+    padding-top:2in;
+    flex: 1;
+}
+.products-container h2{
+    color:white;
+}
+
+.product {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: orange;
+}
+.product img{
+    width:auto;
+    height:2in;
+}
+
+.add-to-cart-btn {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.cart-container {
+    padding-top:2in;
+    flex: 1;
+}
+
+.checkout-btn {
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin-top: 20px;
+}   
 
 </style>
 
@@ -135,53 +195,75 @@ body{
                    <li><a href="about.aspx">About Us</a></li>
                    <li><a href="contact.aspx">Contact</a></li>
                </ul>
-            <div class="shopping">
-                <img src="images/shop_bag.png" />
-                <span class="quantity">0</span>
+            <div class="main">
+                <a href="Default.aspx">Log out</a>
             </div>
         </header>
+       
         <div class="container">
-        <h1>Crochet Equipment Shop</h1>
+        <div class="products-container">
+            <h2>Products</h2>
+            <div class="product">
+                <img src="images/crochet_hook.png" />
+                <h3>Crochet Hook</h3>
+                <p>₱50.00</p>
+                <button class="add-to-cart-btn" onclick="addToCart('Product 1')">Add to Cart</button>
+            </div>
+            <div class="product">
+                <h3>Product 2</h3>
+                <p>₱50.00</p>
+                <button class="add-to-cart-btn" onclick="addToCart('Product 2')">Add to Cart</button>
+            </div>            
+            <div class="product">
+                <h3>Product 3</h3>
+                <p>₱50.00</p>
+                <button class="add-to-cart-btn" onclick="addToCart('Product 3')">Add to Cart</button>
+            </div>           
+            <div class="product">
+                <h3>Product 4</h3>
+                <p>₱50.00</p>
+                <button class="add-to-cart-btn" onclick="addToCart('Product 4')">Add to Cart</button>
+            </div>
+            
+            <!-- More products here -->
         </div>
-    <div class="row">
-  <div class="column">
-    <div class="card">
-      <img src="images/crochet_hook.png" alt="Crochet Hook" />
-      <h3>Crochet Hook</h3>
-      <p>$5.99</p>
-        <button onclick="addToCart('Crochet Hook', 5.99)">Add to Cart</button>
+        <div class="cart-container">
+            <h2>Cart</h2>
+            <div id="cart-items">
+                <!-- Cart items will be displayed here -->
+            </div>
+            <button class="checkout-btn" onclick="checkout()">Checkout</button>
+        </div>
     </div>
-  </div>
+        <script>
+            let cartItems = [];
 
-  <div class="column">
-    <div class="card">
-      <img src="images/crochet_yarn.jpg" alt="Crochet Yarn" />
-      <h3>Crochet Yarn</h3>
-      <p>$6.99</p>
-        <button onclick="addToCart('Crochet Hook', 5.99)">Add to Cart</button>
-    </div>
-  </div>
-  
-  <div class="column">
-    <div class="card">
-    <img src="images/Crochet_book.jpg" alt="Crochet Book" />
-      <h3>Crochet Book</h3>
-      <p>$10.99</p>
-        <button onclick="addToCart('Crochet Hook', 5.99)">Add to Cart</button>
-    </div>
-  </div>
-  
-  <div class="column">
-    <div class="card">
-        <img src="images/stitch_marker.jpeg" alt="Stitch Marker" />
-      <h3>Stitch Marker</h3>
-      <p>$1.99</p>
-        <button onclick="addToCart('Crochet Hook', 5.99)">Add to Cart</button>
-    </div>
-  </div>
-</div>
+            function addToCart(productName) {
+                cartItems.push(productName);
+                updateCart();
+            }
 
-      
+            function updateCart() {
+                const cartElement = document.getElementById('cart-items');
+                cartElement.innerHTML = '';
+                cartItems.forEach(item => {
+                    const itemElement = document.createElement('div');
+                    itemElement.textContent = item;
+                    cartElement.appendChild(itemElement);
+                });
+            }
+
+            function checkout() {
+                if (cartItems.length > 0) {
+                    alert('Checkout successful!');
+                    cartItems = [];
+                    updateCart();
+                } else {
+                    alert('Cart is empty. Please add items before checking out.');
+                }
+            }
+
+        </script>
     </form>
 </body>
 </html>
