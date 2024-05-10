@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css"/>
     <link href="https://fonts.googleapis.com/css2?family=Sedan:ital@0;1&display=swap" rel="stylesheet" />
 
-    <style>
+     <style>
 * {
     margin: 0;
     padding: 0;
@@ -84,106 +84,85 @@ body{
     color: orange;
 }
 .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
-}
-.container h1{
-    text-align:center;
-    color:white;
-    padding-bottom: 1in;
-    padding-top: 1in;
-}
-/* Float four columns side by side */
-.column {
-  float: left;
-  width: 25%;
-  padding: 0 10px;
-}
-
-/* Remove extra left and right margins, due to padding */
-.row {margin: 0 -5px;}
-
-/* Clear floats after the columns */
-.row:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-
-/* Responsive columns */
-@media screen and (max-width: 600px) {
-  .column {
-    width: 100%;
-    display: block;
+            margin-top: 1.5in;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            padding: 20px;
+        }
+        .products {
+            width: 70%;
+            border: 1px solid #ccc;
+            padding: 10px;
+            background-color: orange;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        }
+        .products h2{
+            text-align:center;
+            padding-bottom: 15px;
+        }
+        .cart {
+            width: 25%;
+            border: 1px solid #ccc;
+            padding: 10px;
+            background-color:#bd4900;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        }
+        .cart h2{
+            text-align:center;
+            padding-bottom: 10px;
+        }
+        .cart p{
+            color: black;
+        }
+        #cartItems{
+            color:white;
+        }
+.product-item {
     margin-bottom: 20px;
-  }
-}
-
-/* Style the counter cards */
-.card {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  padding: 16px;
-  text-align: center;
-  background-color: orange;
-  border-radius: 10%
-}
-
-.card img{
-    width: 100%;
-    height:auto;
-    border-radius: 10%;
-}
-.container {
     display: flex;
-    justify-content: space-between;
-    margin: 20px;
+    align-items: center;
 }
 
-.products-container {
-    padding-top:2in;
-    flex: 1;
-}
-.products-container h2{
-    color:white;
+.product-item img {
+    margin-right: 10px;
+    border-radius: 5px;
 }
 
-.product {
-    border: 1px solid #ccc;
-    padding: 10px;
-    margin-bottom: 10px;
-    background-color: orange;
-}
-.product img{
-    width:auto;
-    height:2in;
+.product-item .product-details {
+    flex-grow: 1;
 }
 
-.add-to-cart-btn {
-    background-color: #007bff;
-    color: #fff;
+.product-item h3 {
+    margin-bottom: 5px;
+    font-size: 18px;
+}
+
+.product-item p {
+    margin-bottom: 5px;
+    font-size: 16px;
+}
+
+.product-item .btn {
+    background-color: #4CAF50;
     border: none;
-    padding: 5px 10px;
-    cursor: pointer;
-}
-
-.cart-container {
-    padding-top:2in;
-    flex: 1;
-}
-
-.checkout-btn {
-    background-color: #28a745;
-    color: #fff;
-    border: none;
+    color: white;
     padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 5px;
     cursor: pointer;
-    margin-top: 20px;
-}   
+}
+
 
 </style>
 
 </head>
+
 <body>
     <form id="form1" runat="server">
         <header class="header">
@@ -199,71 +178,51 @@ body{
                 <a href="Default.aspx">Log out</a>
             </div>
         </header>
-       
-        <div class="container">
-        <div class="products-container">
-            <h2>Products</h2>
-            <div class="product">
-                <img src="images/crochet_hook.png" />
+<div class="container">
+    <div class="products">
+        <h2>Products</h2>
+        <div class="product-item">
+            <img src="images/crochet_hook.png" alt="crochet hook" width="100" height="100" />
+            <div class="product-details">
                 <h3>Crochet Hook</h3>
-                <p>₱50.00</p>
-                <button class="add-to-cart-btn" onclick="addToCart('Product 1')">Add to Cart</button>
+                <p>₱10</p>
+                <asp:Button ID="btnProduct1" runat="server" Text="Add to Cart" OnClick="AddToCart_Click" CommandArgument="Crochet Hook, 10" />
             </div>
-            <div class="product">
-                <h3>Product 2</h3>
-                <p>₱50.00</p>
-                <button class="add-to-cart-btn" onclick="addToCart('Product 2')">Add to Cart</button>
-            </div>            
-            <div class="product">
-                <h3>Product 3</h3>
-                <p>₱50.00</p>
-                <button class="add-to-cart-btn" onclick="addToCart('Product 3')">Add to Cart</button>
-            </div>           
-            <div class="product">
-                <h3>Product 4</h3>
-                <p>₱50.00</p>
-                <button class="add-to-cart-btn" onclick="addToCart('Product 4')">Add to Cart</button>
-            </div>
-            
-            <!-- More products here -->
         </div>
-        <div class="cart-container">
-            <h2>Cart</h2>
-            <div id="cart-items">
-                <!-- Cart items will be displayed here -->
+        <div class="product-item">
+            <img src="images/crochet_yarn.jpg" alt="Crochet yarn" width="100" height="100" />
+            <div class="product-details">
+                <h3>Crochet yarn</h3>
+                <p>₱20</p>
+                <asp:Button ID="btnProduct2" runat="server" Text="Add to Cart" OnClick="AddToCart_Click" CommandArgument="Crochet Yarn, 20" />
             </div>
-            <button class="checkout-btn" onclick="checkout()">Checkout</button>
+        </div>        
+        <div class="product-item">
+            <img src="images/Crochet_book.jpg" alt="Crochet Book" width="100" height="100" />
+            <div class="product-details">
+                <h3>Crochet Book</h3>
+                <p>₱80</p>
+                <asp:Button ID="btnProduct3" runat="server" Text="Add to Cart" OnClick="AddToCart_Click" CommandArgument="Crochet Book, 80" />
+            </div>
+        </div>
+        <div class="product-item">
+            <img src="images/stitch_marker.jpeg" alt="Crochet Marker" width="100" height="100" />
+            <div class="product-details">
+                <h3>Crochet yarn</h3>
+                <p>₱5</p>
+                <asp:Button ID="btnProduct4" runat="server" Text="Add to Cart" OnClick="AddToCart_Click" CommandArgument="Crochet Marker, 5" />
+            </div>
         </div>
     </div>
-        <script>
-            let cartItems = [];
+    <div class="cart">
+        <h2>Shopping Cart</h2>
+        <asp:BulletedList ID="cartItems" runat="server"></asp:BulletedList>
+        <p>Total Quantity: <span id="total-quantity"><asp:Label ID="lblTotalQuantity" runat="server" Text="0" /></span></p>
+        <p>Total Price: ₱<span id="total-price"><asp:Label ID="lblTotalPrice" runat="server" Text="0" /></span></p>
+        <asp:Button ID="btnCheckout" runat="server" Text="Checkout" OnClick="Checkout_Click" />
+    </div>
+</div>
 
-            function addToCart(productName) {
-                cartItems.push(productName);
-                updateCart();
-            }
-
-            function updateCart() {
-                const cartElement = document.getElementById('cart-items');
-                cartElement.innerHTML = '';
-                cartItems.forEach(item => {
-                    const itemElement = document.createElement('div');
-                    itemElement.textContent = item;
-                    cartElement.appendChild(itemElement);
-                });
-            }
-
-            function checkout() {
-                if (cartItems.length > 0) {
-                    alert('Checkout successful!');
-                    cartItems = [];
-                    updateCart();
-                } else {
-                    alert('Cart is empty. Please add items before checking out.');
-                }
-            }
-
-        </script>
     </form>
 </body>
 </html>
