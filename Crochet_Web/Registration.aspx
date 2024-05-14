@@ -65,6 +65,7 @@ body{
     font-size: 1.1rem;
     font-weight:500;
     transition: all .50s ease;
+    font-family: 'sedan', sans-serif;
 }
 .main a:hover {
     color: orange;

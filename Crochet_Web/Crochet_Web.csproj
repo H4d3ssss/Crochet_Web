@@ -87,6 +87,9 @@
     <Content Include="Content\bootstrap.rtl.min.css" />
     <Content Include="Default.aspx" />
     <Content Include="home.aspx" />
+    <Content Include="images\1.png" />
+    <Content Include="images\2.png" />
+    <Content Include="images\3.png" />
     <Content Include="images\crochet.png" />
     <Content Include="images\crochet_bg.jpg" />
     <Content Include="images\crochet_bg2.jpg" />
